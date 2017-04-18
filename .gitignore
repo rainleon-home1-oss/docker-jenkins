@@ -1,0 +1,4 @@
+
+*.iml
+
+/jenkins/docker/plugins/*.hpi
