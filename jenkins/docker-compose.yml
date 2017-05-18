@@ -13,12 +13,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: ${DOCKER_REGISTRY:-registry.docker.local}/jenkins:2.32.1-alpine
+    image: ${DOCKER_REGISTRY:-registry.docker.local}/jenkins:2.46.2-alpine
     restart: always
     container_name: ${JENKINS_HOSTNAME:-local-jenkins}
     hostname: ${JENKINS_HOSTNAME:-local-jenkins}
     ports:
-    - "18083:8080/tcp"
+    - "${JENKINS_EXTERNAL_PORT:-18083}:${JENKINS_PORT:-8080}"
     - "50000:50000/tcp"
     volumes:
     - jenkins-master-volume:/var/jenkins_home
