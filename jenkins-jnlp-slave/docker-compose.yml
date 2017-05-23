@@ -24,7 +24,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: ${DOCKER_REGISTRY:-registry.docker.local}/jenkins-jnlp-slave:2.62-xenial
+    image: home1oss/jenkins-jnlp-slave:2.62-xenial
     restart: always
 
     container_name: ${JENKINS_SLAVE_HOSTNAME:-local-jenkins-jnlp-slave}
