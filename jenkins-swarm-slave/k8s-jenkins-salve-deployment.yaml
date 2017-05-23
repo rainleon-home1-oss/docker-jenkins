@@ -1,0 +1,40 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: jenkins-swarm-slave
+  namespace: default
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 2
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: jenkins-swarm-slave
+        tag: oss
+    spec:
+      containers:
+      - image: home1oss/jenkins-swarm-slave:2.2-xenial
+        name: jenkins-swarm-slave
+        args: ["-username", "swarm", "-password", "swarm_pass", "-executors", "5"]
+        env:
+        - name: JENKINS_PORT_8080_TCP_ADDR
+          value: "jenkins.internal"
+        - name: JENKINS_PORT_8080_TCP_PORT
+          value: "18083"
+        - name: GIT_SERVICE_TOKEN
+          value: "qKutsfEY4x8Y4Gr8P2tL"
+        volumeMounts:
+        - name: dockersock
+          mountPath: "/var/run/docker.sock"
+        - name: emptyvolume
+          mountPath: /home/jenkins-slave
+      volumes:
+      - name: dockersock
+        hostPath:
+          path: "/var/run/docker.sock"
+      - name: emptyvolume
+        emptyDir: {}
