@@ -25,8 +25,8 @@ spec:
           value: "jenkins.internal"
         - name: JENKINS_PORT_8080_TCP_PORT
           value: "18083"
-        - name: GIT_SERVICE_TOKEN
-          value: "qKutsfEY4x8Y4Gr8P2tL"
+        - name: INFRASTRUCTURE_CONF_GIT_TOKEN
+          value: "u__RTgWLZi6MjSnxEgsV"
         volumeMounts:
         - name: dockersock
           mountPath: "/var/run/docker.sock"

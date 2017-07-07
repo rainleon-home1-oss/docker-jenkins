@@ -39,7 +39,7 @@ services:
     environment:
     - JENKINS_PORT_8080_TCP_ADDR=${JENKINS_PORT_8080_TCP_ADDR:-local-jenkins}
     - JENKINS_PORT_8080_TCP_PORT=${JENKINS_PORT_8080_TCP_PORT:-8080}
-    - GIT_SERVICE_TOKEN=${GIT_SERVICE_TOKEN:-your_git_service_token}
+    - INFRASTRUCTURE_CONF_GIT_TOKEN=${INFRASTRUCTURE_CONF_GIT_TOKEN:-your_INFRASTRUCTURE_CONF_GIT_TOKEN}
 
 volumes:
   jenkins-swarm-slave-volume: {}
