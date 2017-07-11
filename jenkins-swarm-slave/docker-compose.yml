@@ -27,17 +27,17 @@ services:
     image: home1oss/jenkins-swarm-slave:2.2-xenial
     restart: always
     command: ["-username", "swarm", "-password", "swarm_pass", "-executors", "5"]
-    container_name: ${JENKINS_SLAVE_HOSTNAME:-local-jenkins-swarm-slave}
-    hostname: ${JENKINS_SLAVE_HOSTNAME:-local-jenkins-swarm-slave}
+    container_name: ${JENKINS_SLAVE_HOSTNAME:-jenkins-swarm-slave.local}
+    hostname: ${JENKINS_SLAVE_HOSTNAME:-jenkins-swarm-slave.local}
     external_links:
-    - local-jenkins:local-jenkins
+    - jenkins.local:jenkins.local
     - nexus.local:nexus.local
-    - local-mvnsite:local-mvnsite
+    - mvnsite.local:mvnsite.local
     volumes:
     - jenkins-swarm-slave-volume:/home/jenkins-slave
     - /var/run/docker.sock:/var/run/docker.sock
     environment:
-    - JENKINS_PORT_8080_TCP_ADDR=${JENKINS_PORT_8080_TCP_ADDR:-local-jenkins}
+    - JENKINS_PORT_8080_TCP_ADDR=${JENKINS_PORT_8080_TCP_ADDR:-jenkins.local}
     - JENKINS_PORT_8080_TCP_PORT=${JENKINS_PORT_8080_TCP_PORT:-8080}
     - INFRASTRUCTURE_CONF_GIT_TOKEN=${INFRASTRUCTURE_CONF_GIT_TOKEN:-your_INFRASTRUCTURE_CONF_GIT_TOKEN}
 

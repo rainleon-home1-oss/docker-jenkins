@@ -3,7 +3,7 @@
 
 # An error occurred during installation: No such plugin: cloudbees-folder
 # see: http://stackoverflow.com/questions/37358775/jenkins-2-5-installation-error-an-error-occurred-during-installation-forbidden
-# http://local-jenkins:18083/restart
+# http://jenkins.local:18083/restart
 
 # Find passowrd in console log after initial start.
 
@@ -15,8 +15,8 @@ services:
       dockerfile: Dockerfile
     image: home1oss/jenkins:2.46.2-alpine
     restart: always
-    container_name: ${JENKINS_HOSTNAME:-local-jenkins}
-    hostname: ${JENKINS_HOSTNAME:-local-jenkins}
+    container_name: ${JENKINS_HOSTNAME:-jenkins.local}
+    hostname: ${JENKINS_HOSTNAME:-jenkins.local}
     ports:
     - "${JENKINS_EXTERNAL_PORT:-18083}:${JENKINS_PORT:-8080}"
     - "50000:50000/tcp"
