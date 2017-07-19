@@ -3,7 +3,7 @@
 # https://github.com/jenkinsci/docker/blob/41839c39bfcc00d8cbfcca607fdbb69cbfc58d5b/Dockerfile
 
 # from alpine:3.4 or buildpack-deps:jessie-scm (version without -alpine)
-FROM jenkins:2.46.2-alpine
+FROM jenkins:2.60.1-alpine
 
 USER root
 # see: http://wiki.alpinelinux.org/wiki/Setting_the_timezone

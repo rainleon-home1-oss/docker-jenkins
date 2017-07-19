@@ -15,7 +15,7 @@ ENV HOME /home/jenkins-slave
 # install netstat to allow connection health check with
 # netstat -tan | grep ESTABLISHED
 RUN apt-get update &&\
-    apt-get install -y net-tools curl &&\
+    apt-get install -y net-tools curl iputils-ping zip unzip &&\
     apt-get -q autoremove &&\
     apt-get -q clean -y && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/*.bin
 

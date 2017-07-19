@@ -13,7 +13,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: home1oss/jenkins:2.46.2-alpine
+    image: home1oss/jenkins:2.60.1-alpine
     restart: always
     container_name: ${JENKINS_HOSTNAME:-jenkins.local}
     hostname: ${JENKINS_HOSTNAME:-jenkins.local}
